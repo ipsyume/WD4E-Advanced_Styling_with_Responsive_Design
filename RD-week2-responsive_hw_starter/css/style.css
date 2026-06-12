@@ -1,144 +1,68 @@
+/* ============================================================
+   BASE STYLES — Mobile First (default / no media query)
+   Divs stack vertically, full width
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-    background-color: #dedede;
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-    text-align: center;
-    font-family:Arial, sans-serif;
-    font-size: 32px;
-}
-
-a {
-    color: #000;
-    text-decoration: none;
-    font-family:Arial, sans-serif;
-}
-
-p {
-   font-size: 25px;
-   font-family:Arial, sans-serif;
-}
-
-img{
-  width:100%;
-}
-
-
-p{
-  text-align:center;
-}
-
-div img{
-    width:150px;
-    height: 150px;
-    display:block;
-    margin:auto;
-}
-
-div{
-  display: inline-block;
-  width: 24%;
-  margin: 5px;
-  padding: 2px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-main {
-    border: 5px #000 solid;
-    margin: 10px;
-}
- */
-/* 
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-}
- */
-/* img{
-    width: 200px;
-    height: 200px;
-    padding: 5px;
-} */
-
-/* .child {
-    position: relative;
-    display: inline-block;
-    border: 5px black solid;
-    margin: 5px;
-    border-radius: 5px;
-} */
-
-/* 
-
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.button {
-    display: inline-block;
-    border: 2px solid #000;
-    padding: 5px;
-    border-radius: 25px;
-}
- */
-/* 
-.button:hover {
-    background-color:#fff;
-} */
-
-/* 
-footer {
-    display: flex;
-    justify-content: center;
-} */
-
-/* 
 header {
-    border-radius: 5px;
-    border: 5px #000 solid;
-    margin: 10px;
-} */
+  background-color: #6a0dad;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
 
-/* 
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.child:hover .label {
-    display: block;
-} */
+div {
+  width: 100%;          /* Full width on mobile — divs stack */
+  display: block;       /* Block-level: one per row            */
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+img {
+  width: 100%;          /* Images fill their container         */
+  max-height: none;
+}
+
+/* ============================================================
+   MEDIA QUERY #1 — Tablet View  (≥ 772px)
+   Two divs side-by-side (45% each), images capped in height
+   ============================================================ */
+
+@media (min-width: 772px) {
+
+  div {
+    width: 45%;           /* ~2 divs fit per row                */
+    display: inline-block;/* Side-by-side layout                */
+    vertical-align: top;  /* Align tops when heights differ     */
+  }
+
+  img {
+    width: 100%;
+    max-height: 30vh;     /* Images no more than 30% of viewport height */
+    object-fit: cover;    /* Prevents squishing / stretching    */
+  }
+
+}
+
+/* ============================================================
+   MEDIA QUERY #2 — Large Screen View  (≥ 998px)
+   Three divs side-by-side (30% each)
+   ============================================================ */
+
+@media (min-width: 998px) {
+
+  div {
+    width: 30%;           /* ~3 divs fit per row                */
+    /* display: inline-block already set in the tablet query    */
+  }
+
+}
